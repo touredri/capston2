@@ -5,7 +5,7 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 *********** ](#-***********-)
+- [📖 Capstone2 ](#-capstone2-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -26,11 +26,11 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 *********** <a name="about-project"></a>
+# 📖 capstone2 <a name="about-project"></a>
 
-This *********** project is based on an online website that allows users to add/remove tasks list of tings to do which are stored in a local storage.
+This capstone2 project is based on an online website that allows users to interact with movies show information extract from an API, like or comment them .
 
-**#######** In this project, we will built a basic website that allows users to add/remove tasks list. We achieved that by using JavaScript objects and arrays. We also dynamically modified the DOM and added basic events.
+**#######** In this project, we will built a basic website. We achieved that by using JavaScript objects , arrays and API. We also dynamically modified the DOM and added basic events.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -61,13 +61,14 @@ This *********** project is based on an online website that allows users to add/
 - **JavaScript with Objects**
 - **Local Storage**
 - **Basic UI with plain HTML**
+- **API use**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 
-- [Live Demo Link]( https://touredri.github.io/***********/dist/)
+- [Live Demo Link]( https://touredri.github.io/capstone2/dist/)
 
 
 <!-- - [video Link](https://www.loom.com/share/1f2943ca12ee4b4e97db22f208077ecb) -->
@@ -103,7 +104,7 @@ Example commands:
 
 ```sh
   cd my-folder
-  git clone git@github.com:touredri/***********.git
+  git clone git@github.com:touredri/capstone2.git
 ```
 
 ### Install
@@ -156,7 +157,7 @@ GitHub Pages
 Example:
 
 ```sh
-https://touredri.github.io/***********/
+https://touredri.github.io/capstone2/
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -171,6 +172,12 @@ https://touredri.github.io/***********/
 - Twitter: [touredri](https://twitter.com/touredri)
 - LinkedIn: [touredri](https://www.linkedin.com/in/touredri/)
 
+👤 **Ahmed Saeed**
+
+- GitHub: [@***********](https://github.com/*****)
+- Twitter: [*******](https://twitter.com/*****)
+- LinkedIn: [*****](https://www.linkedin.com/in/******/)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -179,8 +186,8 @@ https://touredri.github.io/***********/
 ## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] **Add CSS style to the application to make it match with the wireframe**
-- [ ] **Modidy the To do List to have navigation bar book list Add books contact info**
-- [ ] **Create class methods to ass and remove books**
+- [ ] **Modify the home page to have navigation bar and list of movies**
+- [ ] **Create methods for likes and comments**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
