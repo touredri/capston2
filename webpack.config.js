@@ -10,6 +10,9 @@ module.exports = {
       },
     ],
   },
+  experiments: {
+    topLevelAwait: true,
+  },
   entry: path.resolve(__dirname, 'src', 'index.js'),
   plugins: [
     new HtmlWebpackPlugin({
