@@ -59,7 +59,7 @@ const showComments = async (season, number) => {
   }
   const showComm = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/be9WLm2cUd5ClZDWcc7I/comments?item_id=${season}-${number}`);
   const data = await showComm.json();
-  document.querySelector('.com-count').innerText = 'Comments';
+  document.querySelector('.com-count').innerText = `Comments (${data.length || 0})`;
   if (data) {
     data.forEach((comment) => {
       const li = document.createElement('li');
