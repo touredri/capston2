@@ -1,10 +1,11 @@
 import './index.css';
 import commentCounter from './comment-counter.js';
+import itemCounter from './item-counter.js';
 
 // import { heart } from '@material-ui/icons';
 // import { faHeart } from '@fortawesome/fontawesome-free-solid';
 
-const getMovies = async () => {
+export const getMovies = async () => {
   const response = await fetch(
     ' https://api.tvmaze.com/seasons/1/episodes',
   );
@@ -12,8 +13,8 @@ const getMovies = async () => {
   return data;
 };
 
-const data = await getMovies();
-const list = document.querySelector('.list');
+export const data = await getMovies();
+export const list = document.querySelector('.list');
 
 let count = 1;
 data.forEach((item) => {
@@ -136,3 +137,5 @@ window.addEventListener('click', (event) => {
     modal.style.display = 'none';
   }
 });
+
+itemCounter();
