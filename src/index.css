@@ -9,6 +9,8 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+  background-color: #e9d8d8e1;
 }
 
 footer {
@@ -23,4 +25,29 @@ footer {
 
 footer p {
   margin: auto;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+  font-size: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000;
+}
+
+nav a:hover {
+  color: #f00;
+  text-decoration: underline;
 }
