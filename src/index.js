@@ -1,4 +1,5 @@
 import './index.css';
+import commentCounter from './comment-counter.js';
 
 // import { heart } from '@material-ui/icons';
 // import { faHeart } from '@fortawesome/fontawesome-free-solid';
@@ -59,18 +60,24 @@ const showComments = async (season, number) => {
   }
   const showComm = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/be9WLm2cUd5ClZDWcc7I/comments?item_id=${season}-${number}`);
   const data = await showComm.json();
-  document.querySelector('.com-count').innerText = 'Comments';
-  if (data) {
+  try {
     data.forEach((comment) => {
       const li = document.createElement('li');
       li.innerText = `${comment.creation_date} - ${comment.username} : ${comment.comment}`;
       ul.appendChild(li);
     });
+    commentCounter(ul);
     document.querySelector('.com-det').appendChild(ul);
-  } else {
-    const p = document.createElement('p');
-    p.textContent = 'No Comment Found';
-    document.querySelector('.com-det').appendChild(p);
+  } catch {
+    const ul = document.querySelector('.det-item');
+    while (ul.firstChild) {
+      ul.removeChild(ul.firstChild);
+    }
+    const li = document.createElement('li');
+    li.textContent = 'No Comment Found';
+    li.classList.add('com-li');
+    ul.appendChild(li);
+    commentCounter(null);
   }
 };
 
