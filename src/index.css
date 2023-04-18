@@ -108,3 +108,95 @@ button:hover {
 .active {
   background-color: #f10b0b;
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 6%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(193, 199, 208, 0.97);
+  padding-bottom: 30%;
+  box-sizing: border-box;
+}
+
+.modal-flex {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 3%;
+  padding-right: 15%;
+  padding-left: 25%;
+}
+
+.modal-flex p {
+  display: flex;
+  flex: 40%;
+  font-size: 1.25rem;
+  margin-right: 10%;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  width: 70%;
+  height: auto;
+  border: 1px solid #ebecf0;
+  border-radius: 8px;
+  overflow: auto;
+  text-align: center;
+}
+
+.modal-content img {
+  width: 50%;
+  margin-top: 2%;
+}
+
+.modal-content h2 {
+  display: block;
+  text-align: center;
+  margin-top: 2%;
+  font-size: 2rem;
+}
+
+.modal-content h3 {
+  display: inline;
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  overflow: unset;
+  color: #aaa;
+  float: right;
+  right: 18%;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 1%;
+}
+
+.see-modal {
+  padding: 16px 12px;
+  width: auto;
+  background: #36b37f;
+  border-radius: 4px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
