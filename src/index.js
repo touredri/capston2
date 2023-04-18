@@ -13,6 +13,7 @@ const getMovies = async () => {
 
 const data = await getMovies();
 const list = document.querySelector('.list');
+
 let count = 1;
 data.forEach((item) => {
   if (item.image) {
@@ -51,7 +52,32 @@ const modal = document.getElementById('myModal');
 const contModal = document.querySelector('.modal-flex');
 const imgPlace = document.querySelector('.modal-content img');
 
+const showComments = async (season, number) => {
+  const ul = document.querySelector('.det-item');
+  while (ul.firstChild) {
+    ul.removeChild(ul.firstChild);
+  }
+  const showComm = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/be9WLm2cUd5ClZDWcc7I/comments?item_id=${season}-${number}`);
+  const data = await showComm.json();
+  document.querySelector('.com-count').innerText = 'Comments';
+  if (data) {
+    data.forEach((comment) => {
+      const li = document.createElement('li');
+      li.innerText = `${comment.creation_date} - ${comment.username} : ${comment.comment}`;
+      ul.appendChild(li);
+    });
+    document.querySelector('.com-det').appendChild(ul);
+  } else {
+    const p = document.createElement('p');
+    p.textContent = 'No Comment Found';
+    document.querySelector('.com-det').appendChild(p);
+  }
+};
+
 list.addEventListener('click', async (ev) => {
+  let season;
+  let number;
+
   if (ev.target.localName === 'button') {
     while (contModal.firstChild) {
       contModal.removeChild(contModal.firstChild);
@@ -61,8 +87,11 @@ list.addEventListener('click', async (ev) => {
     const img = data.image.medium;
     imgPlace.src = img;
 
+    season = data.season;
+    number = data.number;
+
     const {
-      name, season, number, type,
+      name, type,
     } = data;
 
     const rating = data.rating.average;
@@ -87,6 +116,7 @@ list.addEventListener('click', async (ev) => {
     contModal.appendChild(typeP);
     contModal.appendChild(ratingP);
   }
+  showComments(season, number);
 });
 
 const span = document.getElementsByClassName('close')[0];
