@@ -123,6 +123,8 @@ list.addEventListener('click', async (ev) => {
     contModal.appendChild(typeP);
     contModal.appendChild(ratingP);
   }
+  localStorage.clear();
+  localStorage.setItem('item', `${season}-${number}`);
   showComments(season, number);
 });
 
@@ -134,5 +136,36 @@ span.addEventListener('click', () => {
 window.addEventListener('click', (event) => {
   if (event.target === modal) {
     modal.style.display = 'none';
+  }
+});
+
+const form = document.querySelector('#comment-form');
+form.addEventListener('click', (ev) => {
+  ev.preventDefault();
+  if (ev.target.localName === 'button') {
+    const item = JSON.stringify(localStorage.getItem('item'));
+    const user = document.querySelector('#comment-form #user-name').value;
+    const commentText = document.querySelector('#comment-form #comment').value;
+    const commentObj = {
+      item_id: item,
+      username: user,
+      comment: commentText,
+    };
+    fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/be9WLm2cUd5ClZDWcc7I/comments', {
+      method: 'POST',
+      body: JSON.stringify(commentObj),
+      headers: {
+        'Content-type': 'application/json',
+      },
+    }).then((response) => {
+      if (response.ok) {
+        return response;
+      }
+      return Promise.reject(response);
+    }).then((data) => {
+      console.log(data);
+    }).catch((error) => {
+      console.warn('Something went wrong.', error);
+    });
   }
 });

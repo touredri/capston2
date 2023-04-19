@@ -230,3 +230,34 @@ button:hover {
   height: 50px;
   width: 100%;
 }
+
+.form-div form {
+  display: flex;
+  flex-direction: column;
+  padding-left: 30%;
+  padding-right: 30%;
+  margin-top: 2%;
+}
+
+.form-div h2 {
+  display: block;
+  text-align: center;
+  margin-top: 3%;
+  font-size: 1.5rem;
+}
+
+.form-div input {
+  height: 45px;
+  margin-bottom: 2.5%;
+  border: 2px solid black;
+}
+
+.form-div textarea {
+  border: 2px solid black;
+  margin-bottom: 2%;
+}
+
+#comment-form button {
+  width: 50%;
+  margin: auto;
+}
