@@ -1,10 +1,8 @@
 const commentCounter = (ul) => {
-  const counter = document.querySelector('.com-count');
   if (!ul) {
-    counter.innerText = 'Comments (0)';
-  } else {
-    counter.innerText = `Comments (${ul.children.length})`;
+    return '<h3>Comments (0)</h3>';
   }
+  return `<h3>Comments (${ul.children.length})</h3>`;
 };
 
 module.exports = commentCounter;

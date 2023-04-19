@@ -2,6 +2,9 @@ import './index.css';
 import commentCounter from './comment-counter.js';
 import itemCounter from './item-counter.js';
 
+let season;
+let number;
+
 const getMovies = async () => {
   const response = await fetch(' https://api.tvmaze.com/seasons/1/episodes');
   const data = response.json();
@@ -118,6 +121,7 @@ const imgPlace = document.querySelector('.modal-content img');
 
 const showComments = async (season, number) => {
   const ul = document.querySelector('.det-item');
+  const counter = document.querySelector('.com-count');
   while (ul.firstChild) {
     ul.removeChild(ul.firstChild);
   }
@@ -131,7 +135,7 @@ const showComments = async (season, number) => {
       li.innerText = `${comment.creation_date} - ${comment.username} : ${comment.comment}`;
       ul.appendChild(li);
     });
-    commentCounter(ul);
+    counter.innerHTML = commentCounter(ul);
     document.querySelector('.com-det').appendChild(ul);
   } catch {
     const ul = document.querySelector('.det-item');
@@ -142,14 +146,11 @@ const showComments = async (season, number) => {
     li.textContent = 'No Comment Found';
     li.classList.add('com-li');
     ul.appendChild(li);
-    commentCounter(null);
+    counter.innerHTML = commentCounter(null);
   }
 };
 
 list.addEventListener('click', async (ev) => {
-  let season;
-  let number;
-
   if (ev.target.localName === 'button') {
     while (contModal.firstChild) {
       contModal.removeChild(contModal.firstChild);
@@ -186,6 +187,12 @@ list.addEventListener('click', async (ev) => {
     contModal.appendChild(typeP);
     contModal.appendChild(ratingP);
   }
+  localStorage.clear();
+  const sea = parseInt(season, 10);
+  const num = parseInt(number, 10);
+
+  const id = `${sea}-${num}`;
+  localStorage.setItem('item', id);
   showComments(season, number);
 });
 
@@ -200,4 +207,45 @@ window.addEventListener('click', (event) => {
   }
 });
 
+const form = document.querySelector('#comment-form');
+const button = document.querySelector('#comment-form button');
+
+form.addEventListener('click', (ev) => {
+  ev.preventDefault();
+  if (ev.target.localName === 'button') {
+    const item = `${season}-${number}`;
+    const user = document.querySelector('#comment-form #user-name').value;
+    const commentText = document.querySelector('#comment-form #comment').value;
+    const commentObj = {
+      item_id: item,
+      username: user,
+      comment: commentText,
+    };
+    fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/be9WLm2cUd5ClZDWcc7I/comments', {
+      method: 'POST',
+      body: JSON.stringify(commentObj),
+      headers: {
+        'Content-type': 'application/json',
+      },
+    }).then((response) => {
+      if (response.ok) {
+        return response;
+      }
+      return Promise.reject(response);
+    }).then(() => {
+      button.innerText = 'Successfully added';
+      form.reset();
+      setTimeout(() => {
+        button.innerText = 'Add Comment';
+      }, 3000);
+      showComments(season, number);
+    }).catch(() => {
+      form.reset();
+      setTimeout(() => {
+        button.innerText = 'Add Comment';
+      }, 3000);
+      button.innerText = 'Something went wrong.';
+    });
+  }
+});
 itemCounter();
