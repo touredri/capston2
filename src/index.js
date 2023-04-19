@@ -2,16 +2,11 @@ import './index.css';
 import commentCounter from './comment-counter.js';
 import itemCounter from './item-counter.js';
 
-// import { heart } from '@material-ui/icons';
-// import { faHeart } from '@fortawesome/fontawesome-free-solid';
-
 let season;
 let number;
 
 const getMovies = async () => {
-  const response = await fetch(
-    ' https://api.tvmaze.com/seasons/1/episodes',
-  );
+  const response = await fetch(' https://api.tvmaze.com/seasons/1/episodes');
   const data = response.json();
   return data;
 };
@@ -24,11 +19,24 @@ const getLike = async () => {
   return data;
 };
 
-const likes = await getLike();
-const displayLike = (id) => {
-  const like = likes[id].likes;
-  return like;
+const postLike = async (id) => {
+  // eslint-disable-next-line no-unused-vars
+  const response = await fetch(
+    'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/3CLv413c1ifs1Ya2iHvU/likes/',
+    {
+      method: 'POST',
+      body: JSON.stringify({
+        item_id: id,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    },
+  );
 };
+
+const likes = await getLike();
+const displayLike = (id) => likes[id].likes;
 
 const data = await getMovies();
 const list = document.querySelector('.list');
@@ -43,7 +51,11 @@ data.forEach((item) => {
 
     const div = document.createElement('div');
     div.classList.add('row');
-    div.innerHTML = `<h2>${item.name}<h2/> <svg id='my-svg' xmlns='http://www.w3.org/2000/svg' height='48' viewBox='0 96 960 960' width='48'><path d='m480 935-41-37q-105.768-97.121-174.884-167.561Q195 660 154 604.5T96.5 504Q80 459 80 413q0-90.155 60.5-150.577Q201 202 290 202q57 0 105.5 27t84.5 78q42-54 89-79.5T670 202q89 0 149.5 60.423Q880 322.845 880 413q0 46-16.5 91T806 604.5Q765 660 695.884 730.439 626.768 800.879 521 898l-41 37Zm0-79q101.236-92.995 166.618-159.498Q712 630 750.5 580t54-89.135q15.5-39.136 15.5-77.72Q820 347 778 304.5T670.225 262q-51.524 0-95.375 31.5Q531 325 504 382h-49q-26-56-69.85-88-43.851-32-95.375-32Q224 262 182 304.5t-42 108.816Q140 452 155.5 491.5t54 90Q248 632 314 698t166 158Zm0-297Z'/></svg>${displayLike(count)} Likes </div>`;
+    div.innerHTML = `<h2>${
+      item.name
+    }<h2/> <svg class='my-svg' id="${count}" xmlns='http://www.w3.org/2000/svg' height='48' viewBox='0 96 960 960' width='48'><path d='m480 935-41-37q-105.768-97.121-174.884-167.561Q195 660 154 604.5T96.5 504Q80 459 80 413q0-90.155 60.5-150.577Q201 202 290 202q57 0 105.5 27t84.5 78q42-54 89-79.5T670 202q89 0 149.5 60.423Q880 322.845 880 413q0 46-16.5 91T806 604.5Q765 660 695.884 730.439 626.768 800.879 521 898l-41 37Zm0-79q101.236-92.995 166.618-159.498Q712 630 750.5 580t54-89.135q15.5-39.136 15.5-77.72Q820 347 778 304.5T670.225 262q-51.524 0-95.375 31.5Q531 325 504 382h-49q-26-56-69.85-88-43.851-32-95.375-32Q224 262 182 304.5t-42 108.816Q140 452 155.5 491.5t54 90Q248 632 314 698t166 158Zm0-297Z'/></svg><div class="likes-count">${displayLike(
+      count,
+    )} Likes</div> </div>`;
 
     const btn = document.createElement('button');
     btn.classList.add('comment-button');
@@ -57,6 +69,42 @@ data.forEach((item) => {
     list.appendChild(li);
     count += 1;
   }
+});
+
+const svgs = document.querySelectorAll('.my-svg');
+
+svgs.forEach((svg) => {
+  const postId = parseInt(svg.id, 10) + 1;
+  const id = parseInt(svg.id, 10);
+  let isLiked = localStorage.getItem(`post_${postId}_isLiked`) === 'true';
+  svg.classList.toggle('active', isLiked);
+
+  svg.addEventListener('click', async () => {
+    isLiked = !isLiked;
+    svg.classList.toggle('active', isLiked);
+    localStorage.setItem(`post_${postId}_isLiked`, isLiked.toString());
+
+    // send request to server
+    if (isLiked) {
+      await postLike(postId.toString());
+      document.location.reload();
+    } else {
+      const courrentLike = likes[id].likes;
+      const newLike = courrentLike - 1;
+      // eslint-disable-next-line no-unused-vars
+      const response = await fetch(
+        `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/3CLv413c1ifs1Ya2iHvU/likes?item_id=${svg.id}&likes=${newLike}`,
+        {
+          method: 'PATCH',
+        },
+      ).then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error(error));
+      // document.location.reload();
+    }
+
+    // don't reload the page after click
+  });
 });
 
 const getSingle = async (id) => {
@@ -77,7 +125,9 @@ const showComments = async (season, number) => {
   while (ul.firstChild) {
     ul.removeChild(ul.firstChild);
   }
-  const showComm = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/be9WLm2cUd5ClZDWcc7I/comments?item_id=${season}-${number}`);
+  const showComm = await fetch(
+    `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/be9WLm2cUd5ClZDWcc7I/comments?item_id=${season}-${number}`,
+  );
   const data = await showComm.json();
   try {
     data.forEach((comment) => {
@@ -113,9 +163,7 @@ list.addEventListener('click', async (ev) => {
     season = data.season;
     number = data.number;
 
-    const {
-      name, type,
-    } = data;
+    const { name, type } = data;
 
     const rating = data.rating.average;
 
