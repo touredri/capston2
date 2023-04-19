@@ -201,3 +201,33 @@ button:hover {
   text-decoration: none;
   cursor: pointer;
 }
+
+.show-comments {
+  margin-top: 5%;
+  height: auto;
+}
+
+.com-count {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.com-det {
+  text-align: center;
+}
+
+.det-item {
+  display: block;
+  margin-top: 2%;
+  width: 100%;
+}
+
+.com-det li {
+  height: 50px;
+  width: 100%;
+}
+
+.com-li {
+  height: 50px;
+  width: 100%;
+}
