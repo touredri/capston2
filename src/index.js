@@ -4,6 +4,9 @@ import commentCounter from './comment-counter.js';
 // import { heart } from '@material-ui/icons';
 // import { faHeart } from '@fortawesome/fontawesome-free-solid';
 
+let season;
+let number;
+
 const getMovies = async () => {
   const response = await fetch(
     ' https://api.tvmaze.com/seasons/1/episodes',
@@ -82,9 +85,6 @@ const showComments = async (season, number) => {
 };
 
 list.addEventListener('click', async (ev) => {
-  let season;
-  let number;
-
   if (ev.target.localName === 'button') {
     while (contModal.firstChild) {
       contModal.removeChild(contModal.firstChild);
@@ -124,7 +124,11 @@ list.addEventListener('click', async (ev) => {
     contModal.appendChild(ratingP);
   }
   localStorage.clear();
-  localStorage.setItem('item', `${season}-${number}`);
+  const sea = parseInt(season, 10);
+  const num = parseInt(number, 10);
+
+  const id = `${sea}-${num}`;
+  localStorage.setItem('item', id);
   showComments(season, number);
 });
 
@@ -140,10 +144,12 @@ window.addEventListener('click', (event) => {
 });
 
 const form = document.querySelector('#comment-form');
+const button = document.querySelector('#comment-form button');
+
 form.addEventListener('click', (ev) => {
   ev.preventDefault();
   if (ev.target.localName === 'button') {
-    const item = JSON.stringify(localStorage.getItem('item'));
+    const item = `${season}-${number}`;
     const user = document.querySelector('#comment-form #user-name').value;
     const commentText = document.querySelector('#comment-form #comment').value;
     const commentObj = {
@@ -162,10 +168,19 @@ form.addEventListener('click', (ev) => {
         return response;
       }
       return Promise.reject(response);
-    }).then((data) => {
-      console.log(data);
-    }).catch((error) => {
-      console.warn('Something went wrong.', error);
+    }).then(() => {
+      button.innerText = 'Successfully added';
+      form.reset();
+      setTimeout(() => {
+        button.innerText = 'Add Comment';
+      }, 3000);
+      showComments(season, number);
+    }).catch(() => {
+      form.reset();
+      setTimeout(() => {
+        button.innerText = 'Add Comment';
+      }, 3000);
+      button.innerText = 'Something went wrong.';
     });
   }
 });
