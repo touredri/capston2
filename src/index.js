@@ -5,7 +5,7 @@ import itemCounter from './item-counter.js';
 // import { heart } from '@material-ui/icons';
 // import { faHeart } from '@fortawesome/fontawesome-free-solid';
 
-export const getMovies = async () => {
+const getMovies = async () => {
   const response = await fetch(
     ' https://api.tvmaze.com/seasons/1/episodes',
   );
