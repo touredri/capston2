@@ -73,6 +73,7 @@ const imgPlace = document.querySelector('.modal-content img');
 
 const showComments = async (season, number) => {
   const ul = document.querySelector('.det-item');
+  const counter = document.querySelector('.com-count');
   while (ul.firstChild) {
     ul.removeChild(ul.firstChild);
   }
@@ -84,7 +85,7 @@ const showComments = async (season, number) => {
       li.innerText = `${comment.creation_date} - ${comment.username} : ${comment.comment}`;
       ul.appendChild(li);
     });
-    commentCounter(ul);
+    counter.innerHTML = commentCounter(ul);
     document.querySelector('.com-det').appendChild(ul);
   } catch {
     const ul = document.querySelector('.det-item');
@@ -95,7 +96,7 @@ const showComments = async (season, number) => {
     li.textContent = 'No Comment Found';
     li.classList.add('com-li');
     ul.appendChild(li);
-    commentCounter(null);
+    counter.innerHTML = commentCounter(null);
   }
 };
 
