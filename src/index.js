@@ -97,13 +97,8 @@ svgs.forEach((svg) => {
         {
           method: 'PATCH',
         },
-      ).then((response) => response.json())
-        .then((data) => console.log(data))
-        .catch((error) => console.error(error));
-      // document.location.reload();
+      ).then((response) => response.json());
     }
-
-    // don't reload the page after click
   });
 });
 
