@@ -11,4 +11,4 @@ const counts = document.querySelector('.item-number');
 const itemCounter = () => {
   counts.textContent = `(${data.length})`;
 };
-export default itemCounter();
+export default itemCounter;

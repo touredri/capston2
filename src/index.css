@@ -106,10 +106,6 @@ button:hover {
   padding: 0 15px;
 }
 
-.active {
-  background-color: #f10b0b;
-}
-
 .modal {
   display: none;
   position: fixed;
