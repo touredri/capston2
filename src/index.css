@@ -12,6 +12,10 @@ body {
   background-color: #e9d8d8e1;
 }
 
+#logo-image {
+  width: 12%;
+}
+
 footer {
   background-color: black;
   color: white;

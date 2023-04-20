@@ -1,6 +1,7 @@
 import './index.css';
 import commentCounter from './comment-counter.js';
 import itemCounter from './item-counter.js';
+import Image from './logo.png';
 
 let season;
 let number;
@@ -249,4 +250,6 @@ form.addEventListener('click', (ev) => {
     });
   }
 });
+
+document.querySelector('#logo-image').src = Image;
 itemCounter();
