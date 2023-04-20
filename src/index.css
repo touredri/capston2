@@ -12,6 +12,10 @@ body {
   background-color: #e9d8d8e1;
 }
 
+#logo-image {
+  width: 12%;
+}
+
 footer {
   background-color: black;
   color: white;
@@ -256,4 +260,8 @@ button:hover {
 #comment-form button {
   width: 50%;
   margin: auto;
+}
+
+.row h2 {
+  font-size: 22px;
 }
