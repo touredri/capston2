@@ -1,4 +1,4 @@
-import itemCounter from './item-counter.js';
+const itemCounter = require('./item-counter.js');
 
 describe('itemCounter', () => {
   it('updates the count when there are multiple items', async () => {

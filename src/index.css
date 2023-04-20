@@ -257,3 +257,7 @@ button:hover {
   width: 50%;
   margin: auto;
 }
+
+.row h2 {
+  font-size: 22px;
+}

@@ -10,4 +10,4 @@ const itemCounter = async () => {
 
   counts.textContent = `(${data.length})`;
 };
-export default itemCounter;
+module.exports = itemCounter;
