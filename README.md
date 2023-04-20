@@ -174,10 +174,9 @@ https://touredri.github.io/capstone2/
 
 👤 **Ahmed Saeed**
 
-- GitHub: [@***********](https://github.com/*****)
-- Twitter: [*******](https://twitter.com/*****)
-- LinkedIn: [*****](https://www.linkedin.com/in/******/)
-
+- GitHub: [@ehmaddd](https://github.com/ehmaddd/)
+- Twitter: [@ehmaddd_pk](https://twitter.com/ehmaddd_pk)
+- LinkedIn: [ahmad-saeed-734174148](https://www.linkedin.com/in/ahmad-saeed-734174148/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
