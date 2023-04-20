@@ -68,7 +68,7 @@ This Movies show project is based on an online website that allows users to inte
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 
-- [Live Demo Link]( https://touredri.github.io/capstone2/dist/)
+- [Live Demo Link](https://touredri.github.io/capston2/dist/)
 
 
 - [video Link](https://drive.google.com/file/d/1CmKDTYLoWaoMq6Abk9OEii_iFcYd-MCh/view?usp=share_link)
