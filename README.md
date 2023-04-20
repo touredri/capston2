@@ -5,7 +5,7 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 Capstone2 ](#-capstone2-)
+- [📖 Movie show ](#-capstone2-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -26,11 +26,11 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 capstone2 <a name="about-project"></a>
+# 📖 Movies show <a name="about-project"></a>
 
-This capstone2 project is based on an online website that allows users to interact with movies show information extract from an API, like or comment them .
+This Movies show project is based on an online website that allows users to interact with movies show information extract from an API, like or comment them .
 
-**#######** In this project, we will built a basic website. We achieved that by using JavaScript objects , arrays and API. We also dynamically modified the DOM and added basic events.
+**Movies show** In this project, we will built a basic website. We achieved that by using JavaScript objects , arrays and API. We also dynamically modified the DOM and added basic events.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -68,10 +68,10 @@ This capstone2 project is based on an online website that allows users to intera
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 
-- [Live Demo Link]( https://touredri.github.io/capstone2/dist/)
+- [Live Demo Link](https://touredri.github.io/capston2/dist/)
 
 
-<!-- - [video Link](https://www.loom.com/share/1f2943ca12ee4b4e97db22f208077ecb) -->
+- [video Link](https://drive.google.com/file/d/1CmKDTYLoWaoMq6Abk9OEii_iFcYd-MCh/view?usp=share_link)
 
 <!-- GETTING STARTED -->
 
@@ -174,10 +174,9 @@ https://touredri.github.io/capstone2/
 
 👤 **Ahmed Saeed**
 
-- GitHub: [@***********](https://github.com/*****)
-- Twitter: [*******](https://twitter.com/*****)
-- LinkedIn: [*****](https://www.linkedin.com/in/******/)
-
+- GitHub: [@ehmaddd](https://github.com/ehmaddd/)
+- Twitter: [@ehmaddd_pk](https://twitter.com/ehmaddd_pk)
+- LinkedIn: [ahmad-saeed-734174148](https://www.linkedin.com/in/ahmad-saeed-734174148/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
