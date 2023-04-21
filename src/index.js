@@ -24,7 +24,6 @@ const svgs = document.querySelectorAll('.my-svg');
 
 svgs.forEach((svg) => {
   const postId = parseInt(svg.id, 10);
-  const id = parseInt(svg.id, 10);
   let isLiked = localStorage.getItem(`post_${postId}_isLiked`) === 'true';
   svg.classList.toggle('active', isLiked);
 
@@ -37,16 +36,6 @@ svgs.forEach((svg) => {
     if (isLiked) {
       await postLike(postId, likeAPI);
       document.location.reload();
-    } else {
-      const courrentLike = likes[id].likes;
-      const newLike = courrentLike - 1;
-      // eslint-disable-next-line no-unused-vars
-      const response = await fetch(
-        `${likeAPI}?item_id=${svg.id}&likes=${newLike}`,
-        {
-          method: 'PATCH',
-        },
-      ).then((response) => response.json());
     }
   });
 });

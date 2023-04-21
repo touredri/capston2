@@ -1,5 +1,4 @@
 const postLike = async (id, likeAPI) => {
-  // eslint-disable-next-line no-unused-vars
   const response = await fetch(
     likeAPI,
     {
@@ -12,6 +11,7 @@ const postLike = async (id, likeAPI) => {
       },
     },
   );
+  return response;
 };
 
 module.exports = postLike;
