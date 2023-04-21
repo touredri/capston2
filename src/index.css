@@ -1,0 +1,267 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+  background-color: #e9d8d8e1;
+}
+
+#logo-image {
+  width: 12%;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  margin-top: auto;
+}
+
+footer p {
+  margin: auto;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+  font-size: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000;
+}
+
+nav a:hover {
+  color: #f00;
+  text-decoration: underline;
+}
+
+.container {
+  margin-top: 30px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  grid-gap: 20px;
+  list-style: none;
+}
+
+li {
+  width: 300px;
+  height: 300px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+li:hover {
+  transform: scale(1.05);
+}
+
+button {
+  background-color: #fff;
+  padding: 10px;
+  outline: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #635a5a;
+  color: #fff;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 6%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(193, 199, 208, 0.97);
+  padding-bottom: 30%;
+  box-sizing: border-box;
+}
+
+.modal-flex {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 3%;
+  padding-right: 15%;
+  padding-left: 25%;
+}
+
+.modal-flex p {
+  display: flex;
+  flex: 40%;
+  font-size: 1.25rem;
+  margin-right: 10%;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  width: 70%;
+  height: auto;
+  border: 1px solid #ebecf0;
+  border-radius: 8px;
+  overflow: auto;
+  text-align: center;
+}
+
+.modal-content img {
+  width: 50%;
+  margin-top: 2%;
+}
+
+.modal-content h2 {
+  display: block;
+  text-align: center;
+  margin-top: 2%;
+  font-size: 2rem;
+}
+
+.modal-content h3 {
+  display: inline;
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  overflow: unset;
+  color: #aaa;
+  float: right;
+  right: 18%;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 1%;
+}
+
+.see-modal {
+  padding: 16px 12px;
+  width: auto;
+  background: #36b37f;
+  border-radius: 4px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.show-comments {
+  margin-top: 5%;
+  height: auto;
+}
+
+.com-count {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.com-det {
+  text-align: center;
+}
+
+.det-item {
+  display: block;
+  margin-top: 2%;
+  width: 100%;
+}
+
+.com-det li {
+  height: 50px;
+  width: 100%;
+}
+
+.com-li {
+  height: 50px;
+  width: 100%;
+}
+
+.form-div form {
+  display: flex;
+  flex-direction: column;
+  padding-left: 30%;
+  padding-right: 30%;
+  margin-top: 2%;
+}
+
+.form-div h2 {
+  display: block;
+  text-align: center;
+  margin-top: 3%;
+  font-size: 1.5rem;
+}
+
+.form-div input {
+  height: 45px;
+  margin-bottom: 2.5%;
+  border: 2px solid black;
+}
+
+.form-div textarea {
+  border: 2px solid black;
+  margin-bottom: 2%;
+}
+
+#comment-form button {
+  width: 50%;
+  margin: auto;
+}
+
+.row h2 {
+  font-size: 22px;
+}

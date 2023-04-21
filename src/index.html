@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Capstone</title>
+</head>
+<body>
+    <header>
+        <logo>
+            <img id="logo-image"> 
+            <h1>Movies Show</h1> 
+        </logo>
+        <nav>
+            <a href="./index.html">Movies <span class="item-number"></span></a>
+            <a href="#">Series</a>
+            <a href="#">Top Now</a>
+        </nav>
+    </header>
+    <br>
+    <div class="container">
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <img>
+            <h2></h2>
+            <div class="modal-flex">  
+            </div>
+            <div class="show-comments">
+                <p class="com-count"></p>
+                <p class="com-det">
+                    <ul class="det-item"></ul>
+                </p>
+            </div>
+            <div class="form-div">
+                <h2>Add a comment</h2>
+                <form id="comment-form">
+                    <input tye="text" id="user-name" placeholder="Your name">
+                    <textarea cols="30" rows="6" id="comment" placeholder="Your insights"></textarea>
+                    <button>Add Comment</button>
+                </form>
+            </div>
+          </div>
+        </div>
+        <ul class="list"></ul>
+    </div>
+    <img src="" class="img" alt="">
+<footer>
+    <p>
+        Created by Microverse Students under MIT License
+    </p>
+</footer>
+<script src='./index.js' type='text/json'></script>
+</body>
+</html>
